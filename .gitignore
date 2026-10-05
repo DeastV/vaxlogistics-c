@@ -1,0 +1,14 @@
+# Compiled binaries and objects
+*.o
+*.obj
+vaxlogistics
+
+# Debug and memory profiling
+*.log
+vgcore.*
+
+# Temporary and editor files
+.vscode/
+.idea/
+.DS_Store
+*~
