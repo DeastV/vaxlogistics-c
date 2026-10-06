@@ -2,7 +2,6 @@
 
 [![Language](https://img.shields.io/badge/Language-C11-blue.svg)](https://en.wikipedia.org/wiki/C11_(C_standard_revision))
 [![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20POSIX-orange.svg)](https://en.wikipedia.org/wiki/POSIX)
-[![Memory](https://img.shields.io/badge/Memory-Valgrind%20Clean-brightgreen.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A command-line inventory logistics and inoculation tracking engine written in C11. The system handles pharmaceutical vaccine batch registration, expiration date monitoring, automated batch assignment for patient inoculations, multi-criteria record queries, and safe dynamic heap memory management.
@@ -119,16 +118,15 @@ valgrind --leak-check=full --show-leak-kinds=all ./vaxlogistics
 
 ---
 
-## Author & Context
+## Known Limitations
 
-- **David Vasques** ([@DeastV](https://github.com/DeastV))
-
-Developed for the Introdução aos Algoritmos e Estruturas de Dados (IAED) curriculum at Instituto Superior Técnico (IST), Universidade de Lisboa.
-
-*Note: Original commit history is not available; this is the final submitted version.*
+* **Fixed Vaccine Filter Limit in Listing (`l`):** The `lista_lote` implementation allocates a static pointer buffer for filtered vaccine names (`char *vacinas[51]`). Supplying 52 or more distinct vaccine names to `l` exceeds this bound.
+* **Quadratic Sort Complexity:** In-place inventory reordering is executed via bubble sort ($O(n^2)$) on demand across `l` and `a` commands, prioritized for code clarity rather than large-scale data volume throughput.
 
 ---
 
-## License
+## Credits
 
-This project is licensed under the [MIT License](LICENSE).
+* **David Vasques** ([@DeastV](https://github.com/DeastV))
+* Individual coursework developed for Introdução aos Algoritmos e Estruturas de Dados (IAED) at Instituto Superior Técnico, Universidade de Lisboa.
+* *Note: Original commit history is not available; this is the final submitted version.*
